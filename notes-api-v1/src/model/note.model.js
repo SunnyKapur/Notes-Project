@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let noteSchema = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       trim: true,
       required: true,
@@ -18,5 +18,5 @@ let noteSchema = new mongoose.Schema(
   },
 );
 
-let UserModel = mongoose.model("users", noteSchema);
-export default noteSchema;
+let NoteModel = mongoose.model("notes", noteSchema);
+export default NoteModel;
