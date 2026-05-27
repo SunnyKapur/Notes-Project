@@ -1,5 +1,5 @@
 import express from "express";
-import { createNoteController, getAllNotesController, updateNoteController } from "../controller/note.controllers.js";
+import { createNoteController, deleteNoteController, getAllNotesController, updateNoteController } from "../controller/note.controllers.js";
 
 let router = express.Router();
 
@@ -14,6 +14,7 @@ router.get("/", getAllNotesController);
 // @routes Patch /api/update/:id
 router.patch("/update/:id",updateNoteController)
 
-
+// @routes DELETE /api/delete/:id
+router.delete("/delete/:id", deleteNoteController)
 
 export default router;

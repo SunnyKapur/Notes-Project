@@ -84,9 +84,32 @@ export let updateNoteController = async (req, res) => {
     await note.save();
 
     return res.status(200).json({
-        message: "Note updated successfully",
-        note
-    })
+      message: "Note updated successfully",
+      note,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+export const deleteNoteController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(404).json({
+        message: "Notes Id not found",
+      });
+    }
+
+    await NoteModel.findByIdAndDelete(id);
+
+    return res.status(200).json({
+      message: "Note deleted successfully",
+    });
   } catch (error) {
     return res.status(500).json({
       message: "Internal server error",

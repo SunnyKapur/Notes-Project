@@ -19,3 +19,7 @@
 ### if validation pass then update the description property 
 ### Save the note
 
+
+## Create api DELETE /api/notes/delete/:id (For deleting a note with its _id in params)
+### find id in params and doing validation
+### then delete the note through id using findByIdAndDelete method
